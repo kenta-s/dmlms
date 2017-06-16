@@ -94,9 +94,11 @@ class NewsController < ApplicationController
       file = file.force_encoding('utf-8')
       json = JSON.parse(file)
       json.each do |row|
-        news = News.find_or_initialize_by(key: row.first)
-        news.key = row.first
-        news.content = row.second
+        key = row.first
+        news = News.find_or_initialize_by(key: key)
+        content_hash = row.second
+        news.content = content_hash['content']
+        news.label = content_hash['label']
         news.save
       end
     end
