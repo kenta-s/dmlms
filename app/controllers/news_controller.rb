@@ -8,6 +8,7 @@ class NewsController < ApplicationController
 
     respond_to do |format|
       format.html { render :index }
+      format.json { render :index }
       format.csv { send_data render_to_string, filename: News.generate_filename_as_csv, type: :csv }
     end
   end
