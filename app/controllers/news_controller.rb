@@ -61,6 +61,18 @@ class NewsController < ApplicationController
     end
   end
 
+  def upload_file
+    file = params[:file]
+    extname = File.extname(file.original_filename)
+    case extname
+    when '.json'
+      import_news_from_json
+    else
+      raise "Unsupported file type: #{file.original_filename}"
+    end
+    redirect_to news_index_path, notice: t('messages.created', item: 'news')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_news
@@ -70,5 +82,17 @@ class NewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
       params.require(:news).permit(:key, :content, :label)
+    end
+
+    def import_news_from_json
+      file = params[:file].read
+      file = file.force_encoding('utf-8')
+      json = JSON.parse(file)
+      json.each do |row|
+        news = News.find_or_initialize_by(key: row.first)
+        news.key = row.first
+        news.content = row.second
+        news.save
+      end
     end
 end
