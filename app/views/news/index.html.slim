@@ -23,3 +23,9 @@ table
 br
 
 = link_to 'New News', new_news_path
+
+= form_tag upload_file_news_index_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "import"
+
+/ = link_to 'Download CSV', news_path(format: :csv)
