@@ -2,7 +2,6 @@ require 'csv'
 CSV.generate do |csv|
   csv << ['id', 'content', 'category']
   @news.each do |each_news|
-    label = News.labels[each_news.label]
-    csv << [each_news.key, each_news.content, label]
+    csv << [each_news.key, each_news.content, each_news.label_for_csv]
   end
 end

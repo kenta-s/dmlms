@@ -5,7 +5,7 @@ RSpec.describe "news/edit", type: :view do
     @news = assign(:news, News.create!(
       :key => "MyString",
       :content => "MyText",
-      :label => "MyString"
+      :label => "sports"
     ))
   end
 
@@ -17,8 +17,6 @@ RSpec.describe "news/edit", type: :view do
       assert_select "input#news_key[name=?]", "news[key]"
 
       assert_select "textarea#news_content[name=?]", "news[content]"
-
-      assert_select "input#news_label[name=?]", "news[label]"
     end
   end
 end
