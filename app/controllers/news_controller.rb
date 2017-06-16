@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :set_news, only: [:show, :edit, :update, :destroy, :update_label]
 
   # GET /news
   # GET /news.json
@@ -10,6 +10,18 @@ class NewsController < ApplicationController
       format.html { render :index }
       format.json { render :index }
       format.csv { send_data render_to_string, filename: News.generate_filename_as_csv, type: :csv }
+    end
+  end
+
+  def quick_labelling
+    @news = News.unlabelled.first
+  end
+
+  def update_label
+    if @news.update(news_params)
+        redirect_to quick_labelling_news_index_path(@news), notice: 'News was successfully updated.'
+    else
+        render :quick_labelling
     end
   end
 

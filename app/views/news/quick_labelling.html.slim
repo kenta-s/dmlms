@@ -1,0 +1,4 @@
+- if @news.present?
+  = render 'quick_labelling_form', news: @news
+- else
+  p  There are no unlabelled news any more.

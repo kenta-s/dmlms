@@ -7,6 +7,10 @@ RSpec.describe NewsController, type: :routing do
       expect(:get => "/news").to route_to("news#index")
     end
 
+    it "routes to #quick_labelling" do
+      expect(:get => "/news/quick_labelling").to route_to("news#quick_labelling")
+    end
+
     it "routes to #new" do
       expect(:get => "/news/new").to route_to("news#new")
     end

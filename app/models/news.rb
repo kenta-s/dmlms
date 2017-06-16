@@ -13,6 +13,8 @@ class News < ApplicationRecord
     'IT': '7'
   }
 
+  scope :unlabelled, -> { where(label: nil) }
+
   class << self
     def generate_filename_as_csv
       Time.current.strftime("%Y%m%d%H%M%S") + '.csv'

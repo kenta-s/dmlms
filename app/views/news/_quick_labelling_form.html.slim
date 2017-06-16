@@ -1,0 +1,12 @@
+= form_for news, url: update_label_news_path(news), method: :patch do |f|
+  .field
+    = f.label :key
+    = f.text_field :key, readonly: true
+  .field
+    = f.label :content
+    = f.text_area :content, readonly: true
+  .field
+    - News.labels.keys.each do |label|
+      = f.label "#{:label}_#{label.parameterize.underscore}", label.to_sym
+      = f.radio_button :label, label
+  .actions = f.submit
