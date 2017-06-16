@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Key:
+  = @news.key
+p
+  strong Content:
+  = @news.content
+p
+  strong Label:
+  = @news.label
+
+= link_to 'Edit', edit_news_path(@news)
+'|
+= link_to 'Back', news_index_path
