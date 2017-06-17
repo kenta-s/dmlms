@@ -5,10 +5,12 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.page(params[:page])
-
+    @news = News.all
     respond_to do |format|
-      format.html { render :index }
+      format.html do
+        @news = @news.page(params[:page])
+        render :index
+      end
       format.json { render :index }
       format.csv { send_data render_to_string, filename: News.generate_filename_as_csv, type: :csv }
     end
