@@ -5,8 +5,8 @@ describe NewsDecorator do
   subject { news }
   it { is_expected.to be_a News }
 
-  describe 'label_for_csv' do
-    subject { news.label_for_csv }
+  describe '#label_for_export' do
+    subject { news.label_for_export }
 
     context 'label: :celebrity' do
       before { news.celebrity! }
@@ -14,8 +14,8 @@ describe NewsDecorator do
     end
 
     context 'label: :IT' do
-      before { news.IT! }
-      it { is_expected.to eq '7' }
+      before { news.sports! }
+      it { is_expected.to eq '2' }
     end
   end
 end

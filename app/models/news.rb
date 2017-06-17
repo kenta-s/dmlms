@@ -5,12 +5,7 @@ class News < ApplicationRecord
   enum label: {
     'others': '0',
     'celebrity': '1',
-    'sports': '2',
-    'politics': '3',
-    'TV': '4',
-    'science': '5',
-    'imperial': '6',
-    'IT': '7'
+    'sports': '2'
   }
 
   scope :unlabelled, -> { where(label: nil) }
