@@ -3,9 +3,9 @@ class News < ApplicationRecord
   validates :content, presence: true
 
   enum label: {
-    'others': '0',
     'celebrity': '1',
-    'sports': '2'
+    'sports': '2',
+    'others': '0'
   }
 
   scope :unlabelled, -> { where(label: nil) }

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'news#index'
   resources :news do
     collection do
       post 'upload_file'
