@@ -2,18 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "news/index", type: :view do
   before(:each) do
-    assign(:news, [
-      News.create!(
-        :key => "Key",
-        :content => "MyText",
-        :label => 'sports'
-      ),
-      News.create!(
-        :key => "Key",
-        :content => "MyText",
-        :label => 'sports'
-      )
-    ])
+    News.create!(
+      :key => "Key",
+      :content => "MyText",
+      :label => 'sports'
+    )
+    News.create!(
+      :key => "Key",
+      :content => "MyText",
+      :label => 'sports'
+    )
+    assign(:news, News.all.page(1))
   end
 
   it "renders a list of news" do
