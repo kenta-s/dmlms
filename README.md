@@ -1,24 +1,11 @@
-# README
+# DMLMS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DMLMS(Data for Machine Learning Management System) enables you to add labels to your training data easily and quickly.
 
-Things you may want to cover:
+Main fetures: 
+- Import existing JSON file.
+- Export data as JSON or CSV.
 
-* Ruby version
+![DMLMS](https://github.com/kenta-s/dmlms/blob/master/docs/dmlms.gif)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+NOTE: Currently it only focuses on handling text of News.
