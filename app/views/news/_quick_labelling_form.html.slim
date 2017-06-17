@@ -1,6 +1,12 @@
 .row
-  .col.s12.m6
-    .card.darken-1
+  .col.s12.m5
+    .card-panel.teal
+      span.white-text
+        | Unlabelled News Remain:
+        = count
+.row
+  .col.s12.m12
+    .card.medium
       .card-content
         span.card-title = news.key
         p = news.content

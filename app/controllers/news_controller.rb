@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy, :update_label]
+  before_action :set_unlabelled_news, only: [:quick_labelling]
 
   # GET /news
   # GET /news.json
@@ -14,7 +15,6 @@ class NewsController < ApplicationController
   end
 
   def quick_labelling
-    @news = News.unlabelled.first
   end
 
   def update_label
@@ -95,6 +95,10 @@ class NewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_news
       @news = News.find(params[:id])
+    end
+
+    def set_unlabelled_news
+      @unlabelled_news = News.unlabelled
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

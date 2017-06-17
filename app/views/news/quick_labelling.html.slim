@@ -1,4 +1,4 @@
-- if @news.present?
-  = render 'quick_labelling_form', news: @news
+- if @unlabelled_news.present?
+  = render 'quick_labelling_form', news: @unlabelled_news.first, count: @unlabelled_news.count
 - else
   p  There are no unlabelled news any more.
