@@ -111,7 +111,7 @@ class NewsController < ApplicationController
         news = News.find_or_initialize_by(key: key)
         content_hash = row.second
         news.content = content_hash['content']
-        news.label = content_hash['label']
+        news.label ||= content_hash['label']
         news.save
       end
     end
