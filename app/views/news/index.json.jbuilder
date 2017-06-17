@@ -1,1 +1,3 @@
-json.array! @news, partial: 'news/news', as: :news
+@news.each do |news|
+  json.set! news.key, { content: news.content, label: news.label_for_export }
+end
