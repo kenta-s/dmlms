@@ -1,0 +1,26 @@
+footer.page-footer.orange
+  .container
+    .row
+      .col.l6.s12
+        h5.white-text
+          | Bio
+        p.grey-text.text-lighten-4
+          | I'm a Ruby on Rails developer and this application is powered by Ruby on Rails. If you need any help regarding RoR, feel free to contact me via email or Twitter any time :)
+      .col.l3.s12
+      .col.l3.s12
+        h5.white-text
+          | Settings
+        ul
+          li
+            = link_to 'Download CSV', news_index_path(format: :csv), class: 'white-text'
+          li
+            = link_to 'Get JSON', news_index_path(format: :json), class: 'white-text'
+          li
+            / not implemented yet
+            a.white-text[href="#!"]
+              | Edit Labels
+  .footer-copyright
+    .container
+      |  Made by 
+      a.orange-text.text-lighten-3[href="https://github.com/kenta-s"]
+        | kenta-s
