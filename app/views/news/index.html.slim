@@ -15,6 +15,8 @@ table
         td = news.label
         td = link_to 'Edit', edit_news_path(news), class: 'waves-effect waves-light btn'
 
+= paginate @news
+
 .row
   = form_tag upload_file_news_index_path, multipart: true do
   .col.s8
