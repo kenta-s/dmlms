@@ -19,12 +19,12 @@ table
 
 .row
   = form_tag upload_file_news_index_path, multipart: true do
-  .col.s8
-    .file-field.input-field
-      .btn
-        span File
-        = file_field_tag :file
-      .file-path-wrapper
-        input.file-path.validate type="text"
-  .col.s4
-    = submit_tag "import", class: 'waves-effect waves-light btn', style: 'margin-top: 1rem;'
+    .col.s8
+      .file-field.input-field
+        .btn
+          span File
+          = file_field_tag :file
+        .file-path-wrapper
+          input.file-path.validate type="text"
+    .col.s4
+      = submit_tag "import", class: 'waves-effect waves-light btn', style: 'margin-top: 1rem;'
