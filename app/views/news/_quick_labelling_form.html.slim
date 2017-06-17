@@ -1,11 +1,14 @@
+.row
+  .col.s12.m6
+    .card.darken-1
+      .card-content
+        span.card-title = news.key
+        p = news.content
+      .card-action
+        - News.labels.keys.each do |label|
+          a.news_labels href="#" data="#{label}" = label
+
 = form_for news, url: update_label_news_path(news), method: :patch do |f|
-  .field
-    = f.label :key
-    = f.text_field :key, readonly: true
-  .field
-    = f.label :content
-    = f.text_area :content, readonly: true, style: "width: 300px; height: 200px"
-  .field
-    - News.labels.keys.each do |label|
-      = f.label "#{:label}_#{label.parameterize.underscore}", label.to_sym
-      = f.radio_button :label, label
+  = f.hidden_field :key
+  = f.hidden_field :content
+  = f.hidden_field :label
