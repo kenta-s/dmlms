@@ -1,6 +1,7 @@
 class News < ApplicationRecord
   validates :key, presence: true
   validates :content, presence: true
+  validates :source, presence: true
 
   enum label: {
     'celebrity': '1',

@@ -4,6 +4,7 @@ RSpec.describe News, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:key) }
     it { is_expected.to validate_presence_of(:content) }
+    it { is_expected.to validate_presence_of(:source) }
   end
 
   describe 'scopes' do

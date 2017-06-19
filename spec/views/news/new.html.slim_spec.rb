@@ -5,6 +5,7 @@ RSpec.describe "news/new", type: :view do
     assign(:news, News.new(
       :key => "MyString",
       :content => "MyText",
+      :source => "YahooNews",
       :label => "sports"
     ))
   end

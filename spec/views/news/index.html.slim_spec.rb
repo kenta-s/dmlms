@@ -5,11 +5,13 @@ RSpec.describe "news/index", type: :view do
     News.create!(
       :key => "Key",
       :content => "MyText",
+      :source => "YahooNews",
       :label => 'sports'
     )
     News.create!(
       :key => "Key",
       :content => "MyText",
+      :source => "YahooNews",
       :label => 'sports'
     )
     assign(:news, News.all.page(1))

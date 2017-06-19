@@ -27,6 +27,7 @@ RSpec.describe NewsController, type: :controller do
     {
       key: '1',
       content: 'this is a pen.',
+      source: 'YahooNews',
       label: nil
     }
   }
@@ -35,6 +36,7 @@ RSpec.describe NewsController, type: :controller do
     {
       key: '1',
       content: nil,
+      source: nil,
       label: nil
     }
   }
@@ -114,6 +116,7 @@ RSpec.describe NewsController, type: :controller do
         {
           key: '2',
           content: 'I ate an apple.',
+          source: 'somewhere',
           label: 'sports'
         }
       }
@@ -125,6 +128,7 @@ RSpec.describe NewsController, type: :controller do
 
         expect(news.key).to eq('2')
         expect(news.content).to eq('I ate an apple.')
+        expect(news.source).to eq('somewhere')
         expect(news.label).to eq('sports')
       end
 

@@ -105,7 +105,7 @@ class NewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:key, :content, :label)
+      params.require(:news).permit(:key, :content, :label, :source)
     end
 
     def import_news_from_json
@@ -114,8 +114,9 @@ class NewsController < ApplicationController
       json = JSON.parse(file)
       json.each do |row|
         key = row.first
-        news = News.find_or_initialize_by(key: key)
         content_hash = row.second
+        source = content_hash['source'] || 'YahooNews'
+        news = News.find_or_initialize_by(key: key, source: source)
         news.content = content_hash['content']
         news.label ||= content_hash['label']
         news.save
