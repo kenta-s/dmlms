@@ -24,11 +24,19 @@ RSpec.describe NewsController, type: :controller do
   # News. As you add validations to News, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      key: '1',
+      content: 'this is a pen.',
+      label: nil
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      key: '1',
+      content: nil,
+      label: nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +111,21 @@ RSpec.describe NewsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          key: '2',
+          content: 'I ate an apple.',
+          label: 'sports'
+        }
       }
 
       it "updates the requested news" do
         news = News.create! valid_attributes
         put :update, params: {id: news.to_param, news: new_attributes}, session: valid_session
         news.reload
-        skip("Add assertions for updated state")
+
+        expect(news.key).to eq('2')
+        expect(news.content).to eq('I ate an apple.')
+        expect(news.label).to eq('sports')
       end
 
       it "assigns the requested news as @news" do
