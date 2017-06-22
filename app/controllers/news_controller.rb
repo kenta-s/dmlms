@@ -5,7 +5,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.available
     respond_to do |format|
       format.html do
         @news = @news.page(params[:page])
@@ -100,12 +100,12 @@ class NewsController < ApplicationController
     end
 
     def set_unlabelled_news
-      @unlabelled_news = News.unlabelled
+      @unlabelled_news = News.available.unlabelled
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
-      params.require(:news).permit(:key, :content, :label, :source)
+      params.require(:news).permit(:key, :content, :label, :source, :disable)
     end
 
     def import_news_from_json

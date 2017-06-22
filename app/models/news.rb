@@ -10,6 +10,7 @@ class News < ApplicationRecord
   }
 
   scope :unlabelled, -> { where(label: nil) }
+  scope :available, -> { where(disable: false) }
 
   class << self
     def generate_filename_as_csv

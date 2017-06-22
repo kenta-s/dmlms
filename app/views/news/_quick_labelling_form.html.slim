@@ -14,7 +14,10 @@
         - News.labels.keys.each do |label|
           a.news_labels href="#" data="#{label}" = label
 
+        a#disable.right.red-text href="#" data="disable" disable
+
 = form_for news, url: update_label_news_path(news), method: :patch do |f|
   = f.hidden_field :key
   = f.hidden_field :content
   = f.hidden_field :label
+  = f.hidden_field :disable
